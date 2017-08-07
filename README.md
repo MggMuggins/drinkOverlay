@@ -1,6 +1,9 @@
 # drinkOverlay
 A script I wrote to generate all the drinks images for the LOTR Mod
 
+# Dependencies
+You need imagemagick to run this script! On Ubuntu, the package is called ```imagemagick```.
+
 # Usage:
 The script must be given the __assets__ directory inside an extracted LOTR mod jarfile. I reccomend only using complete paths with the script, because when I tried to use anything else I got a lot of errors.
 

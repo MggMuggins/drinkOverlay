@@ -13,7 +13,7 @@ cd $1
 cd lotr/textures/items
 
 # Make sure we have the overlays
-if [ -f $2/Overlays ]; then
+if [ -d "$2" ]; then
   echo "You need the overlays!"
   exit 1
 fi
