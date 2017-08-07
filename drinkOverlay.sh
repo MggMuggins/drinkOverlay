@@ -1,7 +1,13 @@
 #!/bin/bash
 
+# The author disclaims copyright to this source code.  In place of
+# a legal notice, here is a blessing:
+#    May you do good and not evil.
+#    May you find forgiveness for yourself and forgive others.
+#    May you share freely, never taking more than you give.
+
 # USAGE:
-# ./drinkOverlay /path/to/lotr/assets /path/to/output/dir
+# ./drinkOverlay /path/to/lotr/assets /path/to/out/dir
 
 cd $1
 cd lotr/textures/items
@@ -13,19 +19,10 @@ if [ -f $2/Overlays ]; then
 fi
 
 # Get all of our output folders in order
-if [ -f $2 ]; then
-  : #Do nothing...
-  mkdir $2
-  mkdir $2/Vessels
-  mkdir $2/Liquid
-  mkdir $2/LiquidBackgrounds
-  mkdir $2/Out
-else
-  mkdir $2/Vessels
-  mkdir $2/Liquid
-  mkdir $2/LiquidBackgrounds
-  mkdir $2/Out
-fi
+mkdir $2/Vessels
+mkdir $2/Liquid
+mkdir $2/LiquidBackgrounds
+mkdir $2/Out
 
 # Grab the vessel and liquid images
 allVessels=(drink_*.png)
