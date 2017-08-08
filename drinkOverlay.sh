@@ -13,16 +13,17 @@ cd $1
 cd lotr/textures/items
 
 # Make sure we have the overlays
-if [ -d "$2" ]; then
-  echo "You need the overlays!"
-  exit 1
-fi
+#if [ -d "$2" ]; then
+#  echo "You need the overlays!"
+#  exit 1
+#fi
 
 # Get all of our output folders in order
 mkdir $2/Vessels
 mkdir $2/Liquid
 mkdir $2/LiquidBackgrounds
 mkdir $2/Out
+mkdir $2/Gif
 
 # Grab the vessel and liquid images
 allVessels=(drink_*.png)
@@ -74,4 +75,11 @@ for vessel in Vessels/*; do
     convert $liquidBackground -transparent 'rgba(240,0,255,100)' $liquidBackground
     composite -gravity center -compose Over $vessel $liquidBackground $output
   done
+done
+
+# Animate each liquid into gifs
+for liquid in Liquid/*; do
+    liquidType=${liquid#Liquid/mug}
+    liquidType=${liquidType%_liquid.png}
+    convert -dispose background -delay 100 -loop 0 Out/*${liquidType}.png Gif/${liquidType}.gif
 done
